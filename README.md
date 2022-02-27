@@ -8,6 +8,8 @@ For multi licensing syntax, see https://reuse.software/faq/#multi-licensing
 
 # Base of a Free Software Project using EUPL or GPL
 
+[![pipeline status](https://gitlab.ai.it.hs-worms.de/fsl/0-base-free-project-eupl-gpl/badges/main/pipeline.svg)](https://gitlab.ai.it.hs-worms.de/fsl/0-base-free-project-eupl-gpl/-/pipelines)
+
 This repository may be used as a starting point for [Free
 Software](https://www.gnu.org/philosophy/free-sw.html) projects using
 [EUPLv1.2](https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12) or
