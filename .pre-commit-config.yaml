@@ -1,0 +1,16 @@
+# SPDX-FileCopyrightText: 2022 Herbert Thielen <thielen@hs-worms.de>
+#
+# SPDX-License-Identifier: CC0-1.0
+
+# Run "pre-commit install" to install it as git pre-commit check,
+# i.e. pre-commit runs the following tests before a commit is
+# possible. This will avoid including files without copyright
+# information.
+# See https://reuse.readthedocs.io/en/stable/readme.html#run-as-pre-commit-hook
+#
+repos:
+  - repo: https://github.com/fsfe/reuse-tool
+    # run "pre-commit autoupdate" to update the revision
+    rev: v0.14.0
+    hooks:
+      - id: reuse
