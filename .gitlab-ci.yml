@@ -1,0 +1,21 @@
+# SPDX-FileCopyrightText: 2022 Herbert Thielen <thielen@hs-worms.de>
+#
+# SPDX-License-Identifier: CC0-1.0
+
+stages:
+  - test
+
+# See https://reuse.software/dev/#gitlab
+reuse:
+  stage: test	# or precommit rule?
+  # For dependency proxy documentation, see
+  # https://gitlab.ai.it.hs-worms.de/help/user/packages/dependency_proxy/index.md#use-the-dependency-proxy-for-docker-images
+  # Note that the dependency proxy is available at group level only, not for projects (forks)
+  # outside of groups, i.e. for a personal fork, you have to remove the dependency proxy prefix.
+  image:
+    name: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/fsfe/reuse:latest
+    entrypoint: [""]
+  script:
+    - reuse --version
+    - reuse lint
+
