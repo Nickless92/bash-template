@@ -6,11 +6,11 @@ SPDX-License-Identifier: EUPL-1.2 or GPL-3.0-or-later
 For multi licensing syntax, see https://reuse.software/faq/#multi-licensing
 -->
 
-# Base of a Free Software Project using EUPL or GPL
+# Shell Script (Bash) Template
 
-[![pipeline status](https://gitlab.ai.it.hs-worms.de/fsl/0-base-free-project-eupl-gpl/badges/main/pipeline.svg)](https://gitlab.ai.it.hs-worms.de/fsl/0-base-free-project-eupl-gpl/-/pipelines)
+[![pipeline status](https://gitlab.ai.it.hs-worms.de/fsl/1-template-sh-bash/badges/main/pipeline.svg)](https://gitlab.ai.it.hs-worms.de/fsl/1-template-sh-bash/-/pipelines)
 
-This repository may be used as a starting point for [Free
+This repository may be used as a starting point for Shell Scripts in [Free
 Software](https://www.gnu.org/philosophy/free-sw.html) projects using
 [EUPLv1.2](https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12) or
 [GPLv3](https://www.gnu.org/licenses/quick-guide-gplv3).
@@ -24,6 +24,16 @@ Some background information of these licenses is available her:
 [[_TOC_]]
 
 ## Usage
+
+### Shell Script
+
+The shell script is located at [template.sh](template.sh).
+
+Try `template.sh -h` for help.
+
+Search the template for `FIXME` entries to modify it to your needs.
+
+### Reuse.Software
 
 As usual, you may just clone this repository and build your project based on
 the initial files, or you may just copy the files of this repository.
