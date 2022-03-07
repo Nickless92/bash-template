@@ -29,6 +29,8 @@ script:
     name: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/alpine
     entrypoint: [""]
   script:
+    - echo "available shells in this image:"
+    - ls -l /bin/*sh* /usr/bin/*sh*
     - ./template.sh -V
     - ./template.sh -h
 
