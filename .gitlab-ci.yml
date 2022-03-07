@@ -19,3 +19,16 @@ reuse:
     - reuse --version
     - reuse lint
 
+script:
+  stage: test
+  # For dependency proxy documentation, see
+  # https://gitlab.ai.it.hs-worms.de/help/user/packages/dependency_proxy/index.md#use-the-dependency-proxy-for-docker-images
+  # Note that the dependency proxy is available at group level only, not for projects (forks)
+  # outside of groups, i.e. for a personal fork, you have to remove the dependency proxy prefix.
+  image:
+    name: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/alpine
+    entrypoint: [""]
+  script:
+    - ./template.sh -V
+    - ./template.sh -h
+
