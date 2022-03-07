@@ -19,7 +19,7 @@ reuse:
     - reuse --version
     - reuse lint
 
-script:
+basics:
   stage: test
   # For dependency proxy documentation, see
   # https://gitlab.ai.it.hs-worms.de/help/user/packages/dependency_proxy/index.md#use-the-dependency-proxy-for-docker-images
@@ -28,6 +28,8 @@ script:
   image:
     name: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/alpine
     entrypoint: [""]
+  before_script:
+    - apk update && apk install bash
   script:
     - echo "available shells in this image:"
     - ls -l /bin/*sh* /usr/bin/*sh*
