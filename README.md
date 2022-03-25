@@ -20,8 +20,15 @@ Some background information of these licenses is available her:
 [GPL](https://www.gnu.org/licenses/#GPL).
 
 ## Contents of this page
-
-[[_TOC_]]
+- [Shell Script (Bash) Template](#shell-script-bash-template)
+  - [Contents of this page](#contents-of-this-page)
+  - [Usage](#usage)
+    - [Shell Script](#shell-script)
+    - [Reuse.Software](#reusesoftware)
+  - [License](#license)
+    - [GPLv3 or later](#gplv3-or-later)
+    - [EUPL-1.2](#eupl-12)
+    - [CC0](#cc0)
 
 ## Usage
 
@@ -87,4 +94,3 @@ See [LICENSES/EUPL-1.2.txt](./LICENSES/EUPL-1.2.txt).
 
 Minor files, e.g. [.gitignore](./.gitignore), may be licensed under
 the creative commons zero license, see [LICENSES/CC0-1.0.txt](./LICENSES/CC0-1.0.txt).
-
