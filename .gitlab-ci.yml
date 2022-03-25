@@ -12,12 +12,36 @@ reuse:
   # https://gitlab.ai.it.hs-worms.de/help/user/packages/dependency_proxy/index.md#use-the-dependency-proxy-for-docker-images
   # Note that the dependency proxy is available at group level only, not for projects (forks)
   # outside of groups, i.e. for a personal fork, you have to remove the dependency proxy prefix.
-  image:
-    name: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/fsfe/reuse:latest
-    entrypoint: [""]
+  image: reuse:latest
+  steps:
+    - run: reuse --version
+    - run: reuse lint
+
+
+
+image: node:latest
+cache:
+  key: $CI_COMMIT_REF_SLUG
+  paths:
+    - .npm/
+before_script:
+  - npm ci --cache .npm --prefer-offline
+test_async:
   script:
-    - reuse --version
-    - reuse lint
+    - node ./specs/start.js ./specs/async.spec.js
+    
+jobs:
+  test_async:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Cache node modules
+      uses: actions/cache@v2
+      with:
+        path: ~/.npm
+        key: v1-npm-deps-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: v1-npm-deps-
+
+
 
 basics:
   stage: test
@@ -25,14 +49,11 @@ basics:
   # https://gitlab.ai.it.hs-worms.de/help/user/packages/dependency_proxy/index.md#use-the-dependency-proxy-for-docker-images
   # Note that the dependency proxy is available at group level only, not for projects (forks)
   # outside of groups, i.e. for a personal fork, you have to remove the dependency proxy prefix.
-  image:
-    name: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/alpine
-    entrypoint: [""]
+  image: alpine:latest
   before_script:
     - apk update && apk add bash
-  script:
-    - echo "available shells in this image:"
-    - ls -l /bin/*sh* /usr/bin/*sh*
-    - ./template.sh -V
-    - ./template.sh -h
-
+  steps:
+    - run: echo "available shells in this image:"
+    - run: ls -l /bin/*sh* /usr/bin/*sh*
+    - run: ./template.sh -V
+    - run: ./template.sh -h
